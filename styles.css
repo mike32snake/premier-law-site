@@ -252,7 +252,6 @@ h1, h2, h3, h4, h5, h6 {
   height: 48px;
   width: auto;
   transition: opacity 0.3s;
-  filter: brightness(0) invert(1);
 }
 
 .header-logo:hover img {
@@ -1453,7 +1452,6 @@ h1, h2, h3, h4, h5, h6 {
 .footer-brand img {
   height: 44px;
   margin-bottom: 16px;
-  filter: brightness(0) invert(1);
 }
 
 .footer-brand p {
