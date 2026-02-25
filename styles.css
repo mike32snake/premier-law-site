@@ -2,17 +2,17 @@
    CSS CUSTOM PROPERTIES
    ============================================ */
 :root {
-  --navy-deep: #0a0e14;
-  --navy: #0d1117;
-  --navy-light: #151b23;
-  --navy-mid: #1c2333;
-  --charcoal: #21262d;
-  --crimson: #9b1b30;
-  --crimson-dark: #7a1526;
-  --crimson-light: #b8243c;
-  --gold: #c8a55a;
-  --gold-light: #d4b76e;
-  --gold-dark: #a8884a;
+  --navy-deep: #080808;
+  --navy: #0f0f0f;
+  --navy-light: #181818;
+  --navy-mid: #202020;
+  --charcoal: #272727;
+  --crimson: #cc1122;
+  --crimson-dark: #aa000f;
+  --crimson-light: #e01f30;
+  --gold: #b0b0b0;
+  --gold-light: #cccccc;
+  --gold-dark: #909090;
   --off-white: #f8f6f3;
   --warm-gray: #e8e4df;
   --text-light: #c9d1d9;
@@ -172,12 +172,12 @@ h1, h2, h3, h4, h5, h6 {
 .btn-primary {
   background: linear-gradient(135deg, var(--gold), var(--gold-dark));
   color: var(--navy-deep);
-  box-shadow: 0 4px 20px rgba(200, 165, 90, 0.3);
+  box-shadow: 0 4px 20px rgba(176, 176, 176, 0.3);
 }
 
 .btn-primary:hover {
   background: linear-gradient(135deg, var(--gold-light), var(--gold));
-  box-shadow: 0 6px 30px rgba(200, 165, 90, 0.45);
+  box-shadow: 0 6px 30px rgba(176, 176, 176, 0.45);
   transform: translateY(-2px);
 }
 
@@ -196,12 +196,12 @@ h1, h2, h3, h4, h5, h6 {
 .btn-crimson {
   background: var(--crimson);
   color: var(--white);
-  box-shadow: 0 4px 20px rgba(155, 27, 48, 0.3);
+  box-shadow: 0 4px 20px rgba(204, 17, 34, 0.3);
 }
 
 .btn-crimson:hover {
   background: var(--crimson-light);
-  box-shadow: 0 6px 30px rgba(155, 27, 48, 0.45);
+  box-shadow: 0 6px 30px rgba(204, 17, 34, 0.45);
   transform: translateY(-2px);
 }
 
@@ -232,7 +232,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header.scrolled {
-  background: rgba(10, 14, 20, 0.95);
+  background: rgba(8, 8, 8, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 1px 0 rgba(255,255,255,0.05);
@@ -367,7 +367,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100vh;
   height: 100dvh;
-  background: rgba(10, 14, 20, 0.98);
+  background: rgba(8, 8, 8, 0.98);
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
   z-index: 999;
@@ -428,9 +428,9 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(155, 27, 48, 0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 80% at 80% 30%, rgba(200, 165, 90, 0.05) 0%, transparent 50%),
-    radial-gradient(ellipse 100% 100% at 50% 100%, rgba(10, 14, 20, 1) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(204, 17, 34, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 30%, rgba(176, 176, 176, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 100% 100% at 50% 100%, rgba(8, 8, 8, 1) 0%, transparent 50%),
     linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 50%, var(--navy-deep) 100%);
 }
 
@@ -627,7 +627,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(200, 165, 90, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(176, 176, 176, 0.2), transparent);
 }
 
 .practice-overview-header {
@@ -669,7 +669,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .practice-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(200, 165, 90, 0.15);
+  border-color: rgba(176, 176, 176, 0.15);
   box-shadow: var(--shadow-dark);
 }
 
@@ -740,7 +740,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(200, 165, 90, 0.08), transparent 70%);
+  background: radial-gradient(circle, rgba(176, 176, 176, 0.08), transparent 70%);
 }
 
 .about-grid {
@@ -1010,7 +1010,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .detail-feature-box:hover {
-  border-color: rgba(200, 165, 90, 0.15);
+  border-color: rgba(176, 176, 176, 0.15);
   background: rgba(255,255,255,0.05);
 }
 
@@ -1036,12 +1036,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .feature-icon--gold {
-  background: rgba(200, 165, 90, 0.1);
+  background: rgba(176, 176, 176, 0.1);
   color: var(--gold);
 }
 
 .feature-icon--crimson {
-  background: rgba(155, 27, 48, 0.1);
+  background: rgba(204, 17, 34, 0.1);
   color: var(--crimson);
 }
 
@@ -1087,7 +1087,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 800px;
   height: 800px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(155, 27, 48, 0.04), transparent 60%);
+  background: radial-gradient(circle, rgba(204, 17, 34, 0.04), transparent 60%);
 }
 
 .why-header {
@@ -1116,7 +1116,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .why-card:hover {
-  border-color: rgba(200, 165, 90, 0.12);
+  border-color: rgba(176, 176, 176, 0.12);
   background: rgba(21, 27, 35, 0.9);
   transform: translateY(-4px);
 }
@@ -1125,7 +1125,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 52px;
   height: 52px;
   border-radius: 10px;
-  background: rgba(200, 165, 90, 0.08);
+  background: rgba(176, 176, 176, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1166,7 +1166,7 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 50% 80% at 20% 50%, rgba(200, 165, 90, 0.1), transparent),
+    radial-gradient(ellipse 50% 80% at 20% 50%, rgba(176, 176, 176, 0.1), transparent),
     radial-gradient(ellipse 50% 80% at 80% 50%, rgba(0,0,0,0.2), transparent);
 }
 
@@ -1211,7 +1211,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(200, 165, 90, 0.15), transparent);
+  background: linear-gradient(90deg, transparent, rgba(176, 176, 176, 0.15), transparent);
 }
 
 .contact-header {
@@ -1281,7 +1281,7 @@ h1, h2, h3, h4, h5, h6 {
 .form-group select:focus,
 .form-group textarea:focus {
   border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(200, 165, 90, 0.1);
+  box-shadow: 0 0 0 3px rgba(176, 176, 176, 0.1);
   background: rgba(255,255,255,0.06);
 }
 
@@ -1373,7 +1373,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 48px;
   height: 48px;
   border-radius: 8px;
-  background: rgba(200, 165, 90, 0.08);
+  background: rgba(176, 176, 176, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1707,8 +1707,8 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(155, 27, 48, 0.06) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 80% at 80% 30%, rgba(200, 165, 90, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(204, 17, 34, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 30%, rgba(176, 176, 176, 0.04) 0%, transparent 50%),
     linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%);
 }
 .page-hero .container { position: relative; z-index: 1; }
