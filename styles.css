@@ -1577,6 +1577,10 @@ h1, h2, h3, h4, h5, h6 {
     --header-height: 64px;
   }
 
+  .hero-heading br.desktop-only {
+    display: none;
+  }
+
   .nav-links,
   .header-cta .btn,
   .header-phone {
