@@ -1074,7 +1074,8 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.7;
 }
 
-.feature-box-text--dark {
+.feature-box-text--dark,
+.feature-box-text--light {
   color: var(--text-dark-secondary);
 }
 
@@ -1976,3 +1977,18 @@ h1, h2, h3, h4, h5, h6 {
    ============================================ */
 .no-js .reveal { opacity: 1; transform: none; }
 .no-js .faq-answer { max-height: none; }
+
+/* ============================================
+   JUSTIFIED COPY (Derek, Aug 2026: justify every block of copy)
+   ============================================ */
+.content-text p,
+.about-text,
+.practice-card p,
+.why-card p,
+.faq-answer-inner,
+.footer-brand p,
+.footer-disclaimer,
+.feature-box-text--dark,
+.feature-box-text--light {
+  text-align: justify;
+}
