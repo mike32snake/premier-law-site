@@ -86,7 +86,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="styles.css?v=20260804">
+<link rel="stylesheet" href="styles.css?v=20260823">
 
 <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 </head>
@@ -104,8 +104,24 @@
     </a>
     <nav class="nav-links" aria-label="Main navigation">
       <a href="index.html">Home</a>
-      <a href="telecommunications.html">Telecommunications</a>
-      <a href="real-estate.html">Real Estate</a>
+      <div class="nav-item">
+        <a href="telecommunications.html">Telecommunications<svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <div class="nav-dropdown">
+          <a href="mdu-broadband.html">MDU &amp; Broadband Transactions</a>
+          <a href="wireless-infrastructure.html">Wireless Infrastructure Transactions</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="real-estate.html">Real Estate<svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <div class="nav-dropdown">
+          <a href="purchase-sale.html">Purchase &amp; Sale Transactions</a>
+          <a href="leases.html">Commercial &amp; Residential Leases</a>
+          <a href="landlord-evictions.html">Landlord Representation &amp; Evictions</a>
+          <a href="land-trusts.html">Land Trusts</a>
+          <a href="surplus-funds.html">Surplus Funds Recovery</a>
+        </div>
+      </div>
+      <a href="resources.html">Resources</a>
       <a href="about.html" class="active">About</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -128,7 +144,15 @@
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <a href="index.html">Home</a>
   <a href="telecommunications.html">Telecommunications</a>
+  <a href="mdu-broadband.html" class="mobile-sub">MDU &amp; Broadband Transactions</a>
+  <a href="wireless-infrastructure.html" class="mobile-sub">Wireless Infrastructure Transactions</a>
   <a href="real-estate.html">Real Estate</a>
+  <a href="purchase-sale.html" class="mobile-sub">Purchase &amp; Sale Transactions</a>
+  <a href="leases.html" class="mobile-sub">Commercial &amp; Residential Leases</a>
+  <a href="landlord-evictions.html" class="mobile-sub">Landlord Representation &amp; Evictions</a>
+  <a href="land-trusts.html" class="mobile-sub">Land Trusts</a>
+  <a href="surplus-funds.html" class="mobile-sub">Surplus Funds Recovery</a>
+  <a href="resources.html">Resources</a>
   <a href="about.html">About</a>
   <a href="contact.html">Contact</a>
   <a href="tel:8133300697" class="mobile-phone">813.330.0697</a>
@@ -267,21 +291,6 @@
 </section>
 
 <!-- ============================================
-     TITLE INSIGHTS
-     ============================================ -->
-<section class="content-section content-section--light">
-  <div class="container">
-    <div class="content-text content-text--light reveal">
-      <p class="section-label">Trusted Title Partner</p>
-      <h2>Title Insights</h2>
-      <p>For clients with real estate transaction needs, Premier Law works alongside Title Insights, a trusted Florida title provider with experience in both residential and commercial closings.</p>
-      <p>Title Insights provides title searches, title insurance, escrow services, and full closing coordination. This relationship gives Premier Law clients the option of a complete, end-to-end experience from contract negotiation through final recording.</p>
-      <p><a href="real-estate.html" class="btn btn-crimson">Learn More About Our Real Estate Services</a></p>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
      STATS BAND
      ============================================ -->
 <section class="stats-band">
@@ -338,6 +347,7 @@
       <div class="footer-col">
         <h4>Quick Links</h4>
         <a href="index.html">Home</a>
+        <a href="resources.html">Resources</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </div>
@@ -351,7 +361,7 @@
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2025 Premier Law. All rights reserved.</p>
+      <p>&copy; 2026 Premier Law. All rights reserved.</p>
       <p>Tampa, Florida</p>
     </div>
 

@@ -586,40 +586,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
 }
 
-/* Scroll indicator */
-.scroll-indicator {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  opacity: 0;
-  animation: fadeUp 0.8s 1.3s var(--transition-smooth) forwards;
-}
-
-.scroll-indicator span {
-  font-size: 0.65rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-.scroll-line {
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, var(--crimson), transparent);
-  animation: scrollPulse 2s ease-in-out infinite;
-}
-
-@keyframes scrollPulse {
-  0%, 100% { opacity: 1; transform: scaleY(1); }
-  50% { opacity: 0.4; transform: scaleY(0.6); }
-}
-
 /* ============================================
    PRACTICE AREAS OVERVIEW
    ============================================ */
@@ -650,8 +616,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .practice-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .practice-card {
@@ -659,6 +627,8 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid rgba(0,0,0,0.08);
   border-radius: 8px;
   padding: 48px 36px;
+  display: flex;
+  flex-direction: column;
   transition: all 0.5s var(--transition-smooth);
   position: relative;
   overflow: hidden;
@@ -705,12 +675,15 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.95rem;
   line-height: 1.7;
   margin-bottom: 24px;
+  flex: 1;
 }
 
 .practice-card-link {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--crimson);
+  margin-top: auto;
+  align-self: flex-start;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -1992,3 +1965,55 @@ h1, h2, h3, h4, h5, h6 {
 .feature-box-text--light {
   text-align: justify;
 }
+
+/* NAV DROPDOWNS, RESOURCE GRID, ARTICLE PAGES */
+/* Nav dropdowns */
+.nav-item { position: relative; display: flex; align-items: center; }
+.nav-item > a { display: inline-flex; align-items: center; gap: 5px; }
+.nav-caret { width: 12px; height: 12px; opacity: 0.55; transition: transform 0.25s; flex-shrink: 0; }
+.nav-item:hover .nav-caret, .nav-item:focus-within .nav-caret { transform: rotate(180deg); }
+.nav-dropdown {
+  position: absolute; top: calc(100% + 14px); left: -18px; min-width: 300px;
+  background: #fff; border-radius: 12px; padding: 10px;
+  box-shadow: 0 18px 50px rgba(15, 17, 21, 0.14), 0 2px 8px rgba(15, 17, 21, 0.08);
+  opacity: 0; visibility: hidden; transform: translateY(10px);
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+  z-index: 1200;
+}
+.nav-dropdown::before {
+  content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px;
+}
+.nav-dropdown a {
+  display: block; padding: 11px 14px; border-radius: 8px;
+  font-size: 0.84rem; font-weight: 500; color: rgba(30, 32, 37, 0.85);
+  white-space: nowrap;
+}
+.nav-dropdown a::after { display: none; }
+.nav-dropdown a:hover { background: rgba(139, 21, 40, 0.06); color: var(--crimson); }
+.nav-dropdown a.active { color: var(--crimson); }
+.nav-item:hover .nav-dropdown, .nav-item:focus-within .nav-dropdown {
+  opacity: 1; visibility: visible; transform: translateY(0);
+}
+
+/* Mobile submenu indent */
+.mobile-menu .mobile-sub { padding-left: 22px; font-size: 0.95em; opacity: 0.8; }
+
+/* Resources grid */
+.resource-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px;
+}
+.resource-card {
+  background: #fff; border: 1px solid rgba(30, 32, 37, 0.09); border-radius: 14px;
+  padding: 30px 28px; display: flex; flex-direction: column; gap: 12px;
+  transition: transform 0.3s, box-shadow 0.3s; color: inherit;
+}
+a.resource-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(15, 17, 21, 0.10); }
+.resource-card h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; line-height: 1.3; margin: 0; color: var(--text-dark, #1e2025); }
+.resource-card-cat { font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; color: var(--crimson); margin: 0; }
+.resource-card-blurb { font-size: 0.92rem; line-height: 1.7; color: rgba(30, 32, 37, 0.7); margin: 0; text-align: justify; flex: 1; }
+.resource-card--soon { opacity: 0.72; }
+.resource-soon { font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; color: rgba(30, 32, 37, 0.45); }
+@media (max-width: 900px) { .resource-grid { grid-template-columns: 1fr; } }
+
+/* Article pages */
+.article-section .content-text h2 { margin-top: 8px; }
