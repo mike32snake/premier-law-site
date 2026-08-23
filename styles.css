@@ -733,6 +733,22 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
 }
 
+.about-grid.about-grid--solo {
+  grid-template-columns: 1fr;
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-grid.about-grid--solo .section-label {
+  justify-content: center;
+}
+
+.about-grid.about-grid--solo .about-cta,
+.about-grid.about-grid--solo .about-stats {
+  justify-content: center;
+}
+
 .about-image-wrapper {
   position: relative;
 }
@@ -1490,12 +1506,71 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-disclaimer {
-  font-size: 0.75rem;
-  color: rgba(139, 148, 158, 0.6);
-  max-width: 600px;
-  line-height: 1.6;
+  font-size: 0.72rem;
+  color: rgba(139, 148, 158, 0.55);
+  max-width: 100%;
+  line-height: 1.65;
+  text-align: justify;
+  margin: 28px 0 0;
+  border: 1px solid rgba(139, 148, 158, 0.2);
+  border-radius: var(--border-radius);
+  padding: 20px 24px;
+  background: rgba(139, 148, 158, 0.04);
+}
+
+.footer-disclaimer p {
+  margin: 0 0 8px;
+}
+
+.footer-disclaimer p:last-child {
+  margin-bottom: 0;
+}
+
+.footer-disclaimer-title {
+  font-weight: 600;
+  color: rgba(139, 148, 158, 0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.68rem;
   text-align: center;
-  margin: 24px auto 0;
+  margin-bottom: 10px !important;
+}
+
+/* Contact form: Important Notice acknowledgement */
+.form-consent .consent-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-dark);
+  cursor: pointer;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.form-consent .consent-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  margin: 2px 0 0;
+  background: var(--off-white);
+  border: 1px solid rgba(0,0,0,0.25);
+  border-radius: 3px;
+  accent-color: var(--crimson);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.form-consent .consent-label a {
+  color: var(--crimson);
+  text-decoration: underline;
+}
+
+.form-consent.has-error .consent-label {
+  color: var(--crimson-light);
 }
 
 /* ============================================

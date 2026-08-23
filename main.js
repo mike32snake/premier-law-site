@@ -99,6 +99,12 @@
   var formSuccess = document.getElementById('formSuccess');
 
   if (contactForm) {
+    // Show success message if redirected back after FormSubmit
+    if (window.location.search.includes('submitted=true') && formSuccess) {
+      contactForm.style.display = 'none';
+      formSuccess.style.display = 'block';
+    }
+
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
       var isValid = true;
@@ -112,9 +118,21 @@
         isValid = false;
       }
 
+      var phoneField = document.getElementById('phone');
+      if (phoneField && !phoneField.value.trim()) {
+        phoneField.closest('.form-group').classList.add('has-error');
+        isValid = false;
+      }
+
       var emailField = document.getElementById('email');
       if (emailField && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value.trim())) {
         emailField.closest('.form-group').classList.add('has-error');
+        isValid = false;
+      }
+
+      var practiceField = document.getElementById('practice-area');
+      if (practiceField && !practiceField.value) {
+        practiceField.closest('.form-group').classList.add('has-error');
         isValid = false;
       }
 
@@ -124,17 +142,24 @@
         isValid = false;
       }
 
-      if (isValid && formSuccess) {
-        contactForm.style.display = 'none';
-        formSuccess.style.display = 'block';
+      var disclaimerField = document.getElementById('disclaimer');
+      if (disclaimerField && !disclaimerField.checked) {
+        disclaimerField.closest('.form-group').classList.add('has-error');
+        isValid = false;
+      }
+
+      if (isValid) {
+        contactForm.submit();
+        return;
       } else {
-        var firstError = contactForm.querySelector('.has-error input, .has-error textarea');
+        var firstError = contactForm.querySelector('.has-error input, .has-error textarea, .has-error select');
         if (firstError) firstError.focus();
       }
     });
 
     contactForm.querySelectorAll('input, textarea, select').forEach(function(field) {
-      field.addEventListener('input', function() {
+      var eventName = field.type === 'checkbox' ? 'change' : 'input';
+      field.addEventListener(eventName, function() {
         this.closest('.form-group').classList.remove('has-error');
       });
     });

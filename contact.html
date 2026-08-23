@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+
 <title>Contact Premier Law | Schedule a Consultation | Tampa Attorney</title>
 <meta name="description" content="Contact Premier Law in Tampa, Florida. Schedule a consultation with attorney Derek A. Carrillo for real estate or telecom matters. Call 813.330.0697.">
 <meta name="keywords" content="contact Premier Law, Tampa attorney consultation, Derek Carrillo contact, schedule legal consultation, Tampa law firm phone">
@@ -182,7 +187,14 @@
 
       <!-- Contact Form -->
       <div class="reveal">
-        <form class="contact-form" id="contactForm" novalidate>
+        <form class="contact-form" id="contactForm" action="https://formsubmit.co/info@premier.law" method="POST" novalidate>
+
+          <!-- FormSubmit config -->
+          <input type="hidden" name="_subject" value="New Contact Form Submission &mdash; Premier Law">
+          <input type="hidden" name="_captcha" value="true">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://premier.law/contact.html?submitted=true">
+          <input type="text" name="_honey" style="display:none">
           <div class="form-row">
             <div class="form-group">
               <label for="name">Full Name *</label>
@@ -190,8 +202,9 @@
               <div class="error-msg">Please enter your name.</div>
             </div>
             <div class="form-group">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555">
+              <label for="phone">Phone *</label>
+              <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" required>
+              <div class="error-msg">Please enter your phone number.</div>
             </div>
           </div>
 
@@ -202,19 +215,28 @@
           </div>
 
           <div class="form-group">
-            <label for="practice-area">Practice Area</label>
-            <select id="practice-area" name="practice-area">
+            <label for="practice-area">Practice Area *</label>
+            <select id="practice-area" name="practice-area" required>
               <option value="" disabled selected>Select a practice area</option>
               <option value="telecom">Telecommunications</option>
               <option value="real-estate">Real Estate</option>
               <option value="other">Other</option>
             </select>
+            <div class="error-msg">Please select a practice area.</div>
           </div>
 
           <div class="form-group">
             <label for="message">Message *</label>
             <textarea id="message" name="message" placeholder="Tell us about your legal matter..." required></textarea>
             <div class="error-msg">Please enter a message.</div>
+          </div>
+
+          <div class="form-group form-consent">
+            <label class="consent-label">
+              <input type="checkbox" id="disclaimer" name="disclaimer" value="yes" required>
+              <span>I have read and acknowledge the <a href="#important-notice">Important Notice</a> below. *</span>
+            </label>
+            <div class="error-msg">Please confirm that you have read the Important Notice below.</div>
           </div>
 
           <div class="form-submit">
@@ -295,7 +317,7 @@
     </div>
 
     <!-- Attorney-Client Disclaimer -->
-    <div class="reveal" style="margin-top: 48px; padding: 28px 32px; background: rgba(176, 176, 176, 0.08); border: 1px solid rgba(176, 176, 176, 0.2); border-radius: 8px; max-width: 900px; margin-left: auto; margin-right: auto;">
+    <div id="important-notice" class="reveal" style="margin-top: 48px; padding: 28px 32px; background: rgba(176, 176, 176, 0.08); border: 1px solid rgba(176, 176, 176, 0.2); border-radius: 8px; max-width: 900px; margin-left: auto; margin-right: auto; scroll-margin-top: 100px;">
       <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.8; margin: 0;"><strong style="color: var(--text-dark-secondary);">Important Notice — No Attorney-Client Relationship:</strong> Contacting Premier Law through this website, by phone, or by email does not create an attorney-client relationship. An attorney-client relationship is only formed when both parties have expressly agreed to its terms, typically through a signed engagement letter or retainer agreement. Information submitted through this contact form is not privileged and may not be kept confidential. Please do not submit confidential or sensitive information until an attorney-client relationship has been established. The information on this website is for general informational purposes only and does not constitute legal advice.</p>
     </div>
   </div>
@@ -323,8 +345,8 @@
             <path d="M20 10l-2-4M36 10l2-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
           </svg>
         </div>
-        <h3>Initial Contact</h3>
-        <p>After you submit your inquiry, our team will respond within one business day to schedule your consultation.</p>
+        <h3>First Contact</h3>
+        <p>Our team will review your inquiry to determine whether we can assist. If so, we will reach out to schedule a consultation.</p>
       </div>
 
       <div class="practice-card reveal reveal-delay-1">
@@ -336,8 +358,9 @@
             <path d="M22 30h12M22 36h8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
           </svg>
         </div>
-        <h3>Paid Consultation</h3>
-        <p>Initial consultations are paid and available by appointment. Our team will discuss your matter, outline potential approaches, and answer your questions.</p>
+        <h3>Initial Consultation<sup>*</sup></h3>
+        <p>By appointment only. Our team will discuss your matter, outline potential approaches, and answer your questions.</p>
+        <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 12px;"><em>* May require payment.</em></p>
       </div>
 
       <div class="practice-card reveal reveal-delay-2">
@@ -402,6 +425,7 @@
         <a href="resources.html">Resources</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
@@ -417,7 +441,13 @@
       <p>Tampa, Florida</p>
     </div>
 
-    <p class="footer-disclaimer">The hiring of a lawyer is an important decision that should not be based solely upon advertisements. Before you decide, ask us to send you free written information about our qualifications and experience. The information on this website is for general informational purposes only and does not constitute legal advice.</p>
+    <div class="footer-disclaimer">
+      <p class="footer-disclaimer-title">Legal Disclaimer</p>
+      <p>The hiring of a lawyer is an important decision and should not be based solely on advertisements. Before you decide, you may request free written information about our attorneys&rsquo; qualifications and experience.</p>
+      <p>This website is provided for informational purposes only and does not constitute legal advice. The information here is not a substitute for consulting with an attorney and does not create an attorney-client relationship. You should always seek professional legal counsel for advice regarding your specific situation.</p>
+      <p>Because laws change frequently and some content relies on external sources, we do not warrant or guarantee the accuracy, completeness, or availability of the information provided on this site or any linked third-party websites. Links to other sites are offered solely as a convenience and do not imply endorsement.</p>
+      <p>You should never delay seeking legal advice, disregard professional guidance, or start or stop any legal action based solely on information from this website. Always consult a qualified attorney for advice tailored to your circumstances.</p>
+    </div>
   </div>
 </footer>
 
