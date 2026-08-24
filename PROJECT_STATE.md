@@ -3,68 +3,63 @@
 _Last updated: 2026-08-23_
 
 ## What this is
-Derek Carrillo's business-law site (telecom + real estate). Estate planning moved to pep.law.
+Derek Carrillo's business-law site: telecommunications and real estate.
+Estate planning moved to pep.law; `estate-planning.html` redirects there.
 
-## THREE repos, and which one the public sees
+## One repo, one site
+`mike32snake/premier-law-site` -> **https://premier.law**
 
-| Repo | URL | Role |
-|---|---|---|
-| `loki-mamv/premier-law-site` | **https://premier.law** (CNAME in repo) | **THE LIVE PUBLIC SITE.** Push here or the public sees nothing. |
-| `mike32snake/premier-law-site` | https://mike32snake.github.io/premier-law-site/ | Staging mirror. Same content. |
-| `mike32snake/premier-law-preview` | https://mike32snake.github.io/premier-law-preview/ | Derek's review copy. noindex + PREVIEW badge. |
+The `CNAME` file in this repo owns the domain. `www.premier.law` resolves too,
+GitHub redirects it to the apex. `https://mike32snake.github.io/premier-law-site/`
+301s to premier.law, so there is no duplicate copy to keep in sync.
 
-`www.premier.law` CNAMEs to `loki-mamv.github.io`. Use `gh auth token --user loki-mamv` to push there.
+DNS is at GoDaddy (`ns75/ns76.domaincontrol.com`): apex A records point at
+GitHub's Pages IPs `185.199.108-111.153`, and `www` is a CNAME to
+`loki-mamv.github.io`. That www record is stale but harmless, GitHub routes by
+Host header, not by the CNAME target. Repoint it to `mike32snake.github.io`
+whenever someone is in GoDaddy anyway.
 
-## Source of truth: the preview repo
-All three now carry identical content. Edit in
-`/Users/mmaseda/Desktop/Derek Websites/Premier Law Preview`, then:
+### Retired 2026-08-23, do not use
+- `loki-mamv/premier-law-site` — a fork of this repo that held the domain from
+  Feb to Aug 2026. Archived, Pages deleted, everything merged back here first.
+- `mike32snake/premier-law-preview` — Derek's review copy for the Aug nav
+  restructure. Approved and shipped. Archived, Pages deleted.
 
+Both carry a `RETIRED.md` explaining the move.
+
+## Editing the site
 ```
-cd "/Users/mmaseda/Desktop/Derek Websites/Premier Law Preview"
-python3 build_preview.py                    # regenerate the preview
-python3 promote_to_live.py                  # -> ../Premier Law  (mike32snake)
-python3 promote_to_live.py <loki-checkout>  # -> premier.law
+cd "/Users/mmaseda/Desktop/Derek Websites/Premier Law"
+python3 tools/build.py
+git add -A && git commit && git push origin main
+gh api repos/mike32snake/premier-law-site/pages/builds/latest --jq '.status'
 ```
 
-`promote_to_live.py` strips the preview-only artifacts (noindex meta, PREVIEW
-badge CSS, `?v=preview1`) and bumps the stylesheet cache-buster to today's date.
-It keeps the intentional noindex on `estate-planning.html` and
-`privacy-policy.html`, and never touches the live repo's `CNAME`.
+`tools/build.py` is the generator. It rewrites the nav, mobile menu, and footer
+on the six hand-written pages (`index`, `telecommunications`, `real-estate`,
+`about`, `contact`, `privacy-policy`) and regenerates the ten subpages from the
+content dicts inside it. Copy for those subpages lives in the script, not in the
+HTML: edit there or the next build overwrites you. It is idempotent, and it
+bumps the stylesheet cache-buster to the build date on every run.
 
-## 2026-08-23 session
-Promoted the approved preview to both live repos, plus Derek's new notes:
-- Home: hero scroll indicator removed; practice cards 3 -> 2 columns, centered,
-  card links pinned to the bottom so they align.
-- Purchase & Sale: no "What is Title Insights?" question in the FAQ (the Title
-  Insights section above it stays). Matching FAQPage JSON-LD entry removed from
-  real-estate.html so structured data matches the visible FAQ.
-- About: keeps the real education credential and every prior edit.
+Hand-edit only the six pages above, and only outside the nav/menu/footer blocks.
 
-Also merged in the edits that only existed on the loki-mamv fork and would
-otherwise have been lost: favicons, privacy-policy.html, the four-paragraph
-footer legal disclaimer, the FormSubmit contact form (required phone, practice
-area, and Important Notice checkbox), "First Contact" / "Initial Consultation*"
-copy, Barry University education, 11+ years, no EV charging, no photo on the
-home about teaser.
+Commit author must be `mike32snake <mike32snake@users.noreply.github.com>`.
+A hook blocks `mike@genhealth.ai` on these repos.
 
-## Open items
-- Title Insights URL from Derek, to hyperlink the name on real-estate and purchase-sale.
-- Derek to fact-check the drafted subpages (MDU bulk/retail/access, wireless, surplus funds).
-- 4 Resources cards are "coming soon" placeholders.
-- About says "11+ Years"; PEP says 12. Confirm with Derek.
-- `preview.premier.law` DNS does not exist. `build_preview.py` no longer writes a
-  CNAME. When Derek adds `preview CNAME mike32snake.github.io.`, run
-  `gh api repos/mike32snake/premier-law-preview/pages -X PUT -f cname=preview.premier.law`
-  and commit a CNAME file.
+## Site structure
+- Telecommunications -> MDU & Broadband, Wireless Infrastructure
+- Real Estate -> Purchase & Sale, Leases, Landlord Rep & Evictions, Land Trusts,
+  Surplus Funds
+- Resources hub + 2 articles (bulk agreements, surplus funds)
+- About, Contact, Privacy Policy
 
-## Deploy
-```
-gh auth switch --user mike32snake
-git -C "/Users/mmaseda/Desktop/Derek Websites/Premier Law Preview" push origin main
-git -C "/Users/mmaseda/Desktop/Derek Websites/Premier Law" push origin main
-# premier.law:
-GH_TOKEN=$(gh auth token --user loki-mamv) git -C <loki-checkout> push origin main
-gh api repos/<owner>/premier-law-site/pages/builds/latest --jq '.status'
-```
-Commit author must be `mike32snake <mike32snake@users.noreply.github.com>`; a
-hook blocks `mike@genhealth.ai` on these repos.
+Contact form posts to FormSubmit -> info@premier.law. Name, phone, email,
+practice area, message, and the Important Notice checkbox are all required;
+`main.js` validates them and `?submitted=true` shows the success state.
+
+## Open items for Derek
+- Title Insights URL, to hyperlink the name on real-estate and purchase-sale.
+- Fact-check the drafted subpages: MDU bulk/retail/access, wireless, surplus funds.
+- 4 Resources cards are "coming soon" placeholders with no target.
+- About and the home trust bar say "11+ Years"; pep.law says 12.
