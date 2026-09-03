@@ -1,6 +1,6 @@
 # PROJECT_STATE — Premier Law (premier.law)
 
-_Last updated: 2026-08-23_
+_Last updated: 2026-09-03_
 
 ## What this is
 Derek Carrillo's business-law site: telecommunications and real estate.
@@ -43,6 +43,14 @@ HTML: edit there or the next build overwrites you. It is idempotent, and it
 bumps the stylesheet cache-buster to the build date on every run.
 
 Hand-edit only the six pages above, and only outside the nav/menu/footer blocks.
+
+**about.html is pinned to its 2026-08-04 version (commit 47b9d90) as of
+2026-09-03.** Mike asked to revert it after the Aug 23 changes. It has the
+flat nav (no dropdowns, no Resources link), the Title Insights section, the
+short disclaimer, and "J.D., Accredited Law School". Running `tools/build.py`
+will rewrite its nav and footer and move Title Insights to purchase-sale.html
+again. Do not run the build until Mike says which about.html he wants long
+term; if you must build, run `git checkout HEAD -- about.html` afterwards.
 
 Commit author must be `mike32snake <mike32snake@users.noreply.github.com>`.
 A hook blocks `mike@genhealth.ai` on these repos.
